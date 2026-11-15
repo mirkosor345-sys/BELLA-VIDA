@@ -1166,6 +1166,52 @@ render();
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+// Importa las funciones necesarias de Firebase desde el CDN oficial
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+// 1. Configuración de tu proyecto (reemplaza estos datos con los que te dio Firebase)
+const firebaseConfig = {
+  apiKey: "TU_API_KEY",
+  authDomain: "TU_AUTH_DOMAIN",
+  databaseURL: "TU_DATABASE_URL",
+  projectId: "TU_PROJECT_ID",
+  storageBucket: "TU_STORAGE_BUCKET",
+  messagingSenderId: "TU_MESSAGING_SENDER_ID",
+  appId: "TU_APP_ID"
+};
+
+// 2. Inicializar Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+// 3. Ejemplo de lógica para guardar datos al hacer clic en un botón
+// (Asegúrate de cambiar "miBoton" y "miInput" por los IDs reales de tus elementos HTML)
+/*
+const boton = document.getElementById("miBoton");
+
+if (boton) {
+  boton.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    // Obtener el valor del campo de texto
+    const valorInput = document.getElementById("miInput").value;
+
+    // Guardar los datos en una ruta de la base de datos (por ejemplo, "registros")
+    push(ref(db, 'registros/'), {
+      texto: valorInput,
+      fecha: new Date().toISOString()
+    })
+    .then(() => {
+      console.log("¡Datos guardados correctamente!");
+      alert("¡Guardado con éxito!");
+    })
+    .catch((error) => {
+      console.error("Error al guardar los datos:", error);
+    });
+  });
+}
+*/
 </script>
 </body>
 </html>
